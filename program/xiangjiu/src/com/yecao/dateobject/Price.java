@@ -13,6 +13,7 @@ public class Price {
 	 * 持续时间
 	 */
 	private String abidance;
+	
 
 	public String getId() {
 		return id;

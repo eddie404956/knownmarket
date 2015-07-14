@@ -1,3 +1,4 @@
+drop table if exists `price`;
 CREATE TABLE IF NOT EXISTS `price` (
   `idprice` INT NOT NULL COMMENT '',
   `quantity` VARCHAR(45) NULL COMMENT '价格',

@@ -1,9 +1,12 @@
 package com.yecao.dateobject;
 
 import java.sql.Blob;
+import java.sql.Clob;
 import java.util.Date;
 
 /**
+ * 
+ * 具体的用户下载项目，可以是pdf，或者激活码
  * @author eddie
  *
  */
@@ -14,6 +17,8 @@ public class Product {
 	private Blob product;
 	
 	private Date createTime;
+	
+	private Clob activeCode;
 
 	public String getId() {
 		return id;
@@ -37,6 +42,14 @@ public class Product {
 
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
+	}
+
+	public Clob getActiveCode() {
+		return activeCode;
+	}
+
+	public void setActiveCode(Clob activeCode) {
+		this.activeCode = activeCode;
 	}
 	
 	

@@ -1,3 +1,4 @@
+drop table if exists `order`;
 CREATE TABLE IF NOT EXISTS `order` (
   `idorder` INT NOT NULL COMMENT '',
   `createtime` DATETIME NULL COMMENT '',

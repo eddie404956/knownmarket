@@ -1,3 +1,4 @@
+drop table if exists `coupon`;
 CREATE TABLE IF NOT EXISTS `coupon` (
   `idcoupon` INT NOT NULL COMMENT '',
   `code` VARCHAR(45) NULL COMMENT '优惠码\n',

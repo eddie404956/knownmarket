@@ -1,3 +1,4 @@
+drop table if exists `merchandise`;
 CREATE TABLE IF NOT EXISTS `merchandise` (
   `mid` INT NOT NULL COMMENT '',
   `name` VARCHAR(45) NOT NULL COMMENT '',

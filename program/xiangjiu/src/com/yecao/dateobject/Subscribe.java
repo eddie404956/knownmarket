@@ -15,6 +15,16 @@ public class Subscribe {
 	 * 最新的产品是否已经推送
 	 */
 	private boolean isSend;
+	
+	/**
+	 * 订阅要发送的用户
+	 */
+	private User user;
+	
+	/**
+	 * 订阅对应的商品
+	 */
+	private Merchandise merchandise;
 
 	public String getId() {
 		return id;
@@ -38,6 +48,22 @@ public class Subscribe {
 
 	public void setSend(boolean isSend) {
 		this.isSend = isSend;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Merchandise getMerchandise() {
+		return merchandise;
+	}
+
+	public void setMerchandise(Merchandise merchandise) {
+		this.merchandise = merchandise;
 	}
 	
 	

@@ -1,3 +1,4 @@
+drop table if exists `subscribe`;
 CREATE TABLE IF NOT EXISTS `subscribe` (
   `idsubscribe` INT NOT NULL COMMENT '',
   `merchandise_mid` INT NOT NULL COMMENT '',
