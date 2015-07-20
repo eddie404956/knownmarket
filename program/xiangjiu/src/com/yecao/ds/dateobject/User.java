@@ -1,4 +1,4 @@
-package com.yecao.dateobject;
+package com.yecao.ds.dateobject;
 
 public class User {
 

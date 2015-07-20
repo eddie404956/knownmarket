@@ -1,4 +1,4 @@
-package com.yecao.dateobject;
+package com.yecao.ds.dateobject;
 
 import java.sql.Blob;
 import java.sql.Clob;
