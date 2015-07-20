@@ -1,6 +1,6 @@
 drop table if exists `coupon`;
 CREATE TABLE IF NOT EXISTS `coupon` (
-  `idcoupon` INT NOT NULL COMMENT '',
+  `id` INT NOT NULL COMMENT '',
   `code` VARCHAR(45) NULL COMMENT '优惠码\n',
   `deadline` VARCHAR(45) NULL COMMENT '有效期',
   `limit` VARCHAR(45) NULL DEFAULT '1' COMMENT '使用次数限制，－1为无限次使用',

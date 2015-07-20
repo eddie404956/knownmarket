@@ -1,6 +1,6 @@
 drop table if exists `price`;
 CREATE TABLE IF NOT EXISTS `price` (
-  `idprice` INT NOT NULL COMMENT '',
+  `id` INT NOT NULL COMMENT '',
   `quantity` VARCHAR(45) NULL COMMENT '价格',
   `abidance` VARCHAR(45) NULL COMMENT '持续时间',
   `merchandise_mid` INT NOT NULL COMMENT '',

@@ -1,6 +1,6 @@
 drop table if exists `subscribe`;
 CREATE TABLE IF NOT EXISTS `subscribe` (
-  `idsubscribe` INT NOT NULL COMMENT '',
+  `id` INT NOT NULL COMMENT '',
   `merchandise_mid` INT NOT NULL COMMENT '',
   `user_userid` INT NOT NULL COMMENT '',
   `deadline` DATETIME NULL COMMENT '',

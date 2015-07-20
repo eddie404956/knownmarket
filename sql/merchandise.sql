@@ -1,6 +1,6 @@
 drop table if exists `merchandise`;
 CREATE TABLE IF NOT EXISTS `merchandise` (
-  `mid` INT NOT NULL COMMENT '',
+  `id` INT NOT NULL COMMENT '',
   `name` VARCHAR(45) NOT NULL COMMENT '',
   `description` VARCHAR(256) NULL COMMENT '',
   `authorid` VARCHAR(45) NULL COMMENT '商品作者的id，为userid',

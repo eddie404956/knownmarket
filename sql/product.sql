@@ -1,6 +1,6 @@
 drop table if exists `product`;
 CREATE TABLE IF NOT EXISTS `product` (
-  `idproduct` INT NOT NULL COMMENT '',
+  `id` INT NOT NULL COMMENT '',
   `product` BLOB NULL COMMENT '',
   `createtime` DATETIME NULL COMMENT '',
   `merchandise_mid` INT NOT NULL COMMENT '',

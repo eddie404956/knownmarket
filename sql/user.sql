@@ -1,6 +1,6 @@
-drop table if exists `user`;
+drop table if exists `useruser`;
 CREATE TABLE IF NOT EXISTS `user` (
-  `userid` INT NOT NULL COMMENT '',
+  `id` INT NOT NULL COMMENT '',
   `username` VARCHAR(45) NOT NULL COMMENT '用户名',
   `password` VARCHAR(45) CHARACTER SET 'utf8mb4' NOT NULL COMMENT '用户密码',
   `email` VARCHAR(45) NULL COMMENT '用户邮箱，用来接收验证信息，接收更新',
