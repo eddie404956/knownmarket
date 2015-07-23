@@ -12,7 +12,7 @@ import com.yecao.ds.mapper.UserMapper;
 @Controller  //类似Struts的Action
 public class TestController {
  
-    @RequestMapping("test/login.do")  // 请求url地址映射，类似Struts的action-mapping
+    @RequestMapping("10011")  // 请求url地址映射，类似Struts的action-mapping
     public String testLogin(@RequestParam(value="username")String username, String password, HttpServletRequest request) {
         // @RequestParam是指请求url地址映射中必须含有的参数(除非属性required=false)
         // @RequestParam可简写为：@RequestParam("username")
