@@ -1,4 +1,4 @@
-drop table if exists `useruser`;
+drop table if exists `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` INT NOT NULL COMMENT '',
   `username` VARCHAR(45) NOT NULL COMMENT '用户名',
