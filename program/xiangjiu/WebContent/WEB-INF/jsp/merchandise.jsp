@@ -8,14 +8,10 @@
 </head>
 <body>
 
-<form name="regform" action="doreg">
-	username<input name="username" type="text"/>
-	password<input name="password" type="text"/>
-	password again<input name="password1" type="text"/>
-	email<input name="email" type="text"/>
-	alipay<input name="alipay" type="text"/>
-	gender<input name="gender" type="text"/>
-	birthday<input name="birthday" type="text"/>
+<form name="addform" action="addmerchandise">
+	name<input name="name" type="text"/>
+	description<input name="description" type="text"/>
+	isFriend<input name="isFriend" type="text"/>
 	
 	<input value="submit" type="submit"/>
 </form>

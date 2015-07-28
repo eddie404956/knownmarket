@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yecao.ds.mapper.MerchandiseMapper">
+	<!-- 新增记录 -->
+	<insert id="insertMerchandise" parameterType="Merchandise" useGeneratedKeys="true"
+		keyProperty="id">
+		insert into Merchandise(name,description,is_friend)
+		values(#{name},#{description},#{isFriend})
+	</insert>
+	<!-- 查询单条记录 -->
+	<select id="selectMerchandise" parameterType="int" resultType="Merchandise">
+		select * from Merchandise where id = #{id}
+	</select>
+	<!-- 修改记录 -->
+	<update id="updateMerchandise" parameterType="Merchandise">
+		update Merchandise set name = #{name},description = #{description},is_friend =
+		#{isFriend} where id = #{id}
+	</update>
+	<!-- 查询所有记录 -->
+	<select id="selectAll" resultType="Merchandise">
+		select * from Merchandise
+	</select>
+	<!-- 删除记录 -->
+	<delete id="deleteMerchandise" parameterType="int">
+		delete from Merchandise where id = #{id}
+	</delete>
+
+</mapper>

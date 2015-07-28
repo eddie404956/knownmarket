@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public class Merchandise {
 
-	private String id;
+	private Integer id;
 	/**
 	 * 商品名称
 	 * 
@@ -41,13 +41,7 @@ public class Merchandise {
 	 */
 	private Map<String,Product> products=new HashMap<String,Product>();
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
+	
 
 	public String getName() {
 		return name;
@@ -82,7 +76,15 @@ public class Merchandise {
 	}
 
 	
+	
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public Map<String, Coupon> getCoupons() {
 		return coupons;

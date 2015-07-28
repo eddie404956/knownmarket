@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.yecao.ds.dateobject.User;
 import com.yecao.ds.mapper.UserMapper;
@@ -14,13 +15,22 @@ import com.yecao.ds.mapper.UserMapper;
 public class UserController {
  
     @RequestMapping("doreg")  // 请求url地址映射，类似Struts的action-mapping
-    public String reg(@RequestParam(value="username")String username, String password, HttpServletRequest request) {
+    public ModelAndView reg(@RequestParam(value="username")String username, String password,String password1,String email,String alipay,String gender,String birthday, HttpServletRequest request) {
+    	ModelAndView mav=new ModelAndView("index");
        User user=new User();
-//       user.setId(0);
        user.setUserName(username);
+       if(password==null||!password.equals(password1)){
+    	   mav.addObject("success", "false");
+    	  return mav;
+       }
         user.setPassword(password);
+        user.setAlipay(alipay);
+        user.setEmail(email);
+        user.setGender(gender);
+        user.setBirthday(birthday);
         mapper.insertUser(user);
-        return "index";
+        mav.addObject("success", "true");
+        return mav;
     }
     
     @RequestMapping("userreg")
