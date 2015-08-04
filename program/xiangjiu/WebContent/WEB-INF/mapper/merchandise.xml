@@ -3,19 +3,49 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yecao.ds.mapper.MerchandiseMapper">
+
+	<resultMap id="merchandiseResult" type="Merchandise">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="description" column="description"/>
+		<result property="isFriend" column="is_friend"/>
+		<collection property="prices" javaType="ArrayList" column="merchandise_mid"
+			ofType="Price" select="getPriceById" />
+
+		<collection property="coupons" javaType="ArrayList" column="merchandise_mid"
+			ofType="Coupon" select="getCouponById" />
+
+		<collection property="products" javaType="ArrayList"
+			column="merchandise_mid" ofType="Product" select="getProductById" />
+	</resultMap>
+
+	<select id="getPriceById" resultType="Price">
+		select id, quantity,abidance from price where id=#{param1}
+	</select>
+	
+	<select id="getCouponById" resultType="Coupon">
+		select id, code,deadline,limit from coupon where id=#{param1}
+	</select>
+	
+	<select id="getProductById" resultType="Product">
+		select id, product,createtime,activeCode from product where id=#{param1}
+	</select>
+
 	<!-- 新增记录 -->
-	<insert id="insertMerchandise" parameterType="Merchandise" useGeneratedKeys="true"
-		keyProperty="id">
-		insert into Merchandise(name,description,is_friend)
+	<insert id="insertMerchandise" parameterType="Merchandise"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into
+		Merchandise(name,description,is_friend)
 		values(#{name},#{description},#{isFriend})
 	</insert>
 	<!-- 查询单条记录 -->
-	<select id="selectMerchandise" parameterType="int" resultType="Merchandise">
+	<select id="selectMerchandise" parameterType="int" resultMap="merchandiseResult">
 		select * from Merchandise where id = #{id}
 	</select>
 	<!-- 修改记录 -->
 	<update id="updateMerchandise" parameterType="Merchandise">
-		update Merchandise set name = #{name},description = #{description},is_friend =
+		update Merchandise
+		set name = #{name},description = #{description},is_friend =
 		#{isFriend} where id = #{id}
 	</update>
 	<!-- 查询所有记录 -->
@@ -24,7 +54,8 @@
 	</select>
 	<!-- 删除记录 -->
 	<delete id="deleteMerchandise" parameterType="int">
-		delete from Merchandise where id = #{id}
+		delete from
+		Merchandise where id = #{id}
 	</delete>
 
 </mapper>

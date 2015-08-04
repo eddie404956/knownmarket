@@ -29,6 +29,13 @@ public class MerchandiseController {
         mav.addObject("success", "true");
         return mav;
     }
+    @RequestMapping("getone")
+    public ModelAndView reg(@RequestParam(value="id")Integer id,HttpServletRequest request) {
+    	ModelAndView mav=new ModelAndView("index");
+    	Merchandise merchandise=mapper.selectMerchandise(id);
+    	System.out.println(merchandise);
+    	return mav;
+    }
     
     @RequestMapping("merchandise")
     public String toMerchandise(){

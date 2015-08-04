@@ -1,7 +1,7 @@
 package com.yecao.ds.dateobject;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 商品
@@ -29,17 +29,17 @@ public class Merchandise {
 	/**
 	 * 商品允许根据不同的有效期设置不同的价格
 	 */
-	private Map<String,Price> prices=new HashMap<String,Price>();
+	private List<Price> prices=new ArrayList<Price>();
 	
 	/**
 	 * 商品的优惠券码，可以有多个
 	 */
-	private Map<String,Coupon> coupons=new HashMap<String,Coupon>();
+	private List<Coupon> coupons=new ArrayList<Coupon>();
 	
 	/**
 	 * 商品的所属产品，为具体的东西，如pdf
 	 */
-	private Map<String,Product> products=new HashMap<String,Product>();
+	private List<Product> products=new ArrayList<Product>();
 
 	
 
@@ -67,15 +67,6 @@ public class Merchandise {
 		this.isFriend = isFriend;
 	}
 
-	public Map<String, Price> getPrices() {
-		return prices;
-	}
-
-	public void setPrices(Map<String, Price> prices) {
-		this.prices = prices;
-	}
-
-	
 	
 
 	public Integer getId() {
@@ -86,21 +77,36 @@ public class Merchandise {
 		this.id = id;
 	}
 
-	public Map<String, Coupon> getCoupons() {
+	public List<Price> getPrices() {
+		return prices;
+	}
+
+	public void setPrices(List<Price> prices) {
+		this.prices = prices;
+	}
+
+	public List<Coupon> getCoupons() {
 		return coupons;
 	}
 
-	public void setCoupons(Map<String, Coupon> coupons) {
+	public void setCoupons(List<Coupon> coupons) {
 		this.coupons = coupons;
 	}
 
-	public Map<String, Product> getProducts() {
+	public List<Product> getProducts() {
 		return products;
 	}
 
-	public void setProducts(Map<String, Product> products) {
+	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
+
+	@Override
+	public String toString() {
+		return "Merchandise [id=" + id + ", name=" + name + ", description=" + description + ", isFriend=" + isFriend
+				+ ", prices=" + prices + ", coupons=" + coupons + ", products=" + products + "]";
+	}
+
 	
 	
 	
