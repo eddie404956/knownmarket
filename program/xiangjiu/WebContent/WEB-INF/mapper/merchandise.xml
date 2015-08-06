@@ -5,7 +5,7 @@
 <mapper namespace="com.yecao.ds.mapper.MerchandiseMapper">
 
 	<resultMap id="merchandiseResult" type="Merchandise">
-		<id property="id" column="id" />
+		<id property="id" column="mid" />
 		<result property="name" column="name" />
 		<result property="description" column="description" />
 		<result property="isFriend" column="is_friend" />
@@ -26,15 +26,15 @@
 			<id column="id" property="id" />
 			<result column="product"    property="product" jdbcType="BLOB" typeHandler="org.apache.ibatis.type.BlobTypeHandler"/>
 			<result column="createtime" property="createTime" />
-			<result column="activeCode" property="activeCode" />
+			<result column="activecode" property="activeCode" />
 		</collection>
 	</resultMap>
 
 	<select id="selectMerchandise" parameterType="int" resultMap="merchandiseResult">
 		select * from Merchandise m ,price p,coupon c,product t where
-		m.id=p.merchandise_mid and m.id=c.merchandise_mid and
-		m.id=t.merchandise_mid and
-		m.id = #{id}
+		m.mid=p.merchandise_mid and m.mid=c.merchandise_mid and
+		m.mid=t.merchandise_mid and
+		m.mid = #{id}
 	</select>
 
 	<!-- 新增记录 -->

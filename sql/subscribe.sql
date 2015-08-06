@@ -1,21 +1,10 @@
-drop table if exists `subscribe`;
-CREATE TABLE IF NOT EXISTS `subscribe` (
-  `id` INT NOT NULL COMMENT '',
-  `merchandise_mid` INT NOT NULL COMMENT '',
-  `user_userid` INT NOT NULL COMMENT '',
-  `deadline` DATETIME NULL COMMENT '',
-  `hassend` VARCHAR(45) NULL COMMENT '是否需要发送更新\n',
-  PRIMARY KEY (`idsubscribe`, `merchandise_mid`, `user_userid`)  COMMENT '',
-  INDEX `fk_subscribe_merchandise1_idx` (`merchandise_mid` ASC)  COMMENT '',
-  INDEX `fk_subscribe_user1_idx` (`user_userid` ASC)  COMMENT '',
-  CONSTRAINT `fk_subscribe_merchandise1`
-    FOREIGN KEY (`merchandise_mid`)
-    REFERENCES `merchandise` (`mid`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_subscribe_user1`
-    FOREIGN KEY (`user_userid`)
-    REFERENCES `user` (`userid`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
+CREATE TABLE `subscribe` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `merchandise_mid` int(11) NOT NULL,
+  `user_userid` int(11) NOT NULL,
+  `deadline` datetime DEFAULT NULL,
+  `hassend` varchar(45) DEFAULT NULL COMMENT '是否需要发送更新\n',
+  PRIMARY KEY (`id`,`merchandise_mid`,`user_userid`),
+  KEY `fk_subscribe_merchandise1_idx` (`merchandise_mid`),
+  KEY `fk_subscribe_user1_idx` (`user_userid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
