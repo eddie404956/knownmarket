@@ -34,6 +34,7 @@ public class MerchandiseController {
     	ModelAndView mav=new ModelAndView("index");
     	Merchandise merchandise=mapper.selectMerchandise(id);
     	System.out.println(merchandise);
+    	System.out.println(merchandise.getPrices());
     	return mav;
     }
     

@@ -38,6 +38,11 @@ public class Price {
 	public void setAbidance(String abidance) {
 		this.abidance = abidance;
 	}
+
+	@Override
+	public String toString() {
+		return "Price [id=" + id + ", quantity=" + quantity + ", abidance=" + abidance + "]";
+	}
 	
 	
 	

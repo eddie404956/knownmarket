@@ -49,6 +49,11 @@ public class Coupon {
 	public void setDeadLine(String deadLine) {
 		this.deadLine = deadLine;
 	}
+
+	@Override
+	public String toString() {
+		return "Coupon [id=" + id + ", code=" + code + ", limit=" + limit + ", deadLine=" + deadLine + "]";
+	}
 	
 	
 }

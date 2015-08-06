@@ -5,30 +5,36 @@
 <mapper namespace="com.yecao.ds.mapper.MerchandiseMapper">
 
 	<resultMap id="merchandiseResult" type="Merchandise">
-		<id property="id" column="id"/>
-		<result property="name" column="name"/>
-		<result property="description" column="description"/>
-		<result property="isFriend" column="is_friend"/>
-		<collection property="prices" javaType="ArrayList" column="merchandise_mid"
-			ofType="Price" select="getPriceById" />
+		<id property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="description" column="description" />
+		<result property="isFriend" column="is_friend" />
+		<collection property="prices" ofType="Price">
+			<id column="id" property="id" />
+			<result column="quantity" property="quantity" />
+			<result column="abidance" property="abidance" />
+		</collection>
 
-		<collection property="coupons" javaType="ArrayList" column="merchandise_mid"
-			ofType="Coupon" select="getCouponById" />
+		<collection property="coupons" ofType="Coupon">
+			<id column="id" property="id" />
+			<result column="code" property="code" />
+			<result column="deadline" property="deadLine" />
+			<result column="limit" property="limit" />
+		</collection>
 
-		<collection property="products" javaType="ArrayList"
-			column="merchandise_mid" ofType="Product" select="getProductById" />
+		<collection property="products" ofType="Product">
+			<id column="id" property="id" />
+			<result column="product"    property="product" jdbcType="BLOB" typeHandler="org.apache.ibatis.type.BlobTypeHandler"/>
+			<result column="createtime" property="createTime" />
+			<result column="activeCode" property="activeCode" />
+		</collection>
 	</resultMap>
 
-	<select id="getPriceById" resultType="Price">
-		select id, quantity,abidance from price where id=#{param1}
-	</select>
-	
-	<select id="getCouponById" resultType="Coupon">
-		select id, code,deadline,limit from coupon where id=#{param1}
-	</select>
-	
-	<select id="getProductById" resultType="Product">
-		select id, product,createtime,activeCode from product where id=#{param1}
+	<select id="selectMerchandise" parameterType="int" resultMap="merchandiseResult">
+		select * from Merchandise m ,price p,coupon c,product t where
+		m.id=p.merchandise_mid and m.id=c.merchandise_mid and
+		m.id=t.merchandise_mid and
+		m.id = #{id}
 	</select>
 
 	<!-- 新增记录 -->
@@ -39,9 +45,7 @@
 		values(#{name},#{description},#{isFriend})
 	</insert>
 	<!-- 查询单条记录 -->
-	<select id="selectMerchandise" parameterType="int" resultMap="merchandiseResult">
-		select * from Merchandise where id = #{id}
-	</select>
+
 	<!-- 修改记录 -->
 	<update id="updateMerchandise" parameterType="Merchandise">
 		update Merchandise
