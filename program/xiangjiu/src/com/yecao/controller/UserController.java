@@ -33,9 +33,23 @@ public class UserController {
         return mav;
     }
     
+    @RequestMapping("dologin")  // 请求url地址映射，类似Struts的action-mapping
+    public ModelAndView login(@RequestParam(value="username")String username, String password,HttpServletRequest request) {
+    	ModelAndView mav=new ModelAndView("index");
+       User user=mapper.login(username,password	);
+       System.out.println(user);
+        mav.addObject("success", "true");
+        return mav;
+    }
+    
     @RequestMapping("userreg")
     public String toReg(){
     	return "userreg";
+    }
+    
+    @RequestMapping("login")
+    public String toLogin(){
+    	return "userlogin";
     }
  
     

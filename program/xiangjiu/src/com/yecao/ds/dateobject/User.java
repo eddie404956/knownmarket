@@ -94,6 +94,13 @@ public class User {
 	public void setIsvalid(boolean isvalid) {
 		this.isvalid = isvalid;
 	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", email=" + email + ", alipay="
+				+ alipay + ", balance=" + balance + ", gender=" + gender + ", birthday=" + birthday + ", isvalid="
+				+ isvalid + "]";
+	}
 	
 	
 }

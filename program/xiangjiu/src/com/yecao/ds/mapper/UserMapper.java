@@ -6,6 +6,8 @@ import com.yecao.ds.dateobject.User;
 
 public interface UserMapper {
 	public User selectUser(int id);
+	
+	public User login(String name,String pwd);
 	   
     public void insertUser(User user);
    

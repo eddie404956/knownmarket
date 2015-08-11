@@ -13,6 +13,10 @@
 	<select id="selectUser" parameterType="int" resultType="User">
 		select * from user where id = #{id}
 	</select>
+	
+	<select id="login"  resultType="User">
+		select * from user where username = #{0} and password=#{1}
+	</select>
 	<!-- 修改记录 -->
 	<update id="updateUser" parameterType="User">
 		update user set userName = #{userName},password = #{password},email =

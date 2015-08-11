@@ -7,9 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<a href="login">login</a><p/>
-	<a href="userreg">reg</a>
- ${success }
+<form name="loginform" action="dologin">
+	username<input name="username" type="text"/>
+	password<input name="password" type="text"/>
+	
+	
+	<input value="submit" type="submit"/>
+</form>
 </body>
 </html>
