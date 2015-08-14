@@ -15,5 +15,7 @@
 	
 	<input value="submit" type="submit"/>
 </form>
+
+result:${merchandise }
 </body>
 </html>

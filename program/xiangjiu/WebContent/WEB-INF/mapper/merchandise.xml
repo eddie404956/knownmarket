@@ -24,7 +24,8 @@
 
 		<collection property="products" ofType="Product">
 			<id column="id" property="id" />
-			<result column="product"    property="product" jdbcType="BLOB" typeHandler="org.apache.ibatis.type.BlobTypeHandler"/>
+			<result column="product" property="product" jdbcType="BLOB"
+				typeHandler="org.apache.ibatis.type.BlobTypeHandler" />
 			<result column="createtime" property="createTime" />
 			<result column="activecode" property="activeCode" />
 		</collection>
@@ -32,8 +33,11 @@
 
 	<select id="selectMerchandise" parameterType="int" resultMap="merchandiseResult">
 		select * from Merchandise m ,price p,coupon c,product t where
+
 		m.mid=p.merchandise_mid and m.mid=c.merchandise_mid and
+
 		m.mid=t.merchandise_mid and
+
 		m.mid = #{id}
 	</select>
 
@@ -53,8 +57,12 @@
 		#{isFriend} where id = #{id}
 	</update>
 	<!-- 查询所有记录 -->
-	<select id="selectAll" resultType="Merchandise">
-		select * from Merchandise
+	<select id="selectAll" resultMap="merchandiseResult">
+		select * from Merchandise m
+		,price p,coupon c,product t where
+		m.mid=p.merchandise_mid and
+		m.mid=c.merchandise_mid and
+		m.mid=t.merchandise_mid
 	</select>
 	<!-- 删除记录 -->
 	<delete id="deleteMerchandise" parameterType="int">
