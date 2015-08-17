@@ -7,4 +7,4 @@ CREATE TABLE `merchandise` (
   `lastest_product` int(11) DEFAULT NULL COMMENT '最新的产品',
   `is_friend` varchar(45) DEFAULT 'false' COMMENT '''是否会员赞助产品''',
   PRIMARY KEY (`mid`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;

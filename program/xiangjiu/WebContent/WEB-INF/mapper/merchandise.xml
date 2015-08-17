@@ -10,20 +10,20 @@
 		<result property="description" column="description" />
 		<result property="isFriend" column="is_friend" />
 		<collection property="prices" ofType="Price">
-			<id column="id" property="id" />
+			<id column="price_id" property="id" />
 			<result column="quantity" property="quantity" />
 			<result column="abidance" property="abidance" />
 		</collection>
 
 		<collection property="coupons" ofType="Coupon">
-			<id column="id" property="id" />
+			<id column="coupon_id" property="id" />
 			<result column="code" property="code" />
 			<result column="deadline" property="deadLine" />
 			<result column="limit" property="limit" />
 		</collection>
 
 		<collection property="products" ofType="Product">
-			<id column="id" property="id" />
+			<id column="product_id" property="id" />
 			<result column="product" property="product" jdbcType="BLOB"
 				typeHandler="org.apache.ibatis.type.BlobTypeHandler" />
 			<result column="createtime" property="createTime" />
@@ -32,13 +32,10 @@
 	</resultMap>
 
 	<select id="selectMerchandise" parameterType="int" resultMap="merchandiseResult">
-		select * from Merchandise m ,price p,coupon c,product t where
-
-		m.mid=p.merchandise_mid and m.mid=c.merchandise_mid and
-
-		m.mid=t.merchandise_mid and
-
-		m.mid = #{id}
+		select * from merchandise m left join price p on
+		m.mid=p.merchandise_mid
+		left join coupon c on m.mid=c.merchandise_mid
+		left join product t on m.mid=t.merchandise_mid where m.mid=#{id}
 	</select>
 
 	<!-- 新增记录 -->
