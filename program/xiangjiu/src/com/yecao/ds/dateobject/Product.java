@@ -1,7 +1,6 @@
 package com.yecao.ds.dateobject;
 
-import java.sql.Blob;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * 
@@ -11,19 +10,23 @@ import java.util.Date;
  */
 public class Product {
 
-	private String id;
+	private Integer id;
 	
 	private Object product;
 	
 	private Date createTime;
 	
 	private String activeCode;
+	
+	private Integer mid;
 
-	public String getId() {
+	
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -51,6 +54,18 @@ public class Product {
 
 	public void setActiveCode(String activeCode) {
 		this.activeCode = activeCode;
+	}
+	
+	
+
+	
+
+	public Integer getMid() {
+		return mid;
+	}
+
+	public void setMid(Integer mid) {
+		this.mid = mid;
 	}
 
 	@Override

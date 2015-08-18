@@ -11,8 +11,8 @@
 		<result property="isFriend" column="is_friend" />
 		<collection property="prices" ofType="Price">
 			<id column="price_id" property="id" />
-			<result column="quantity" property="quantity" />
-			<result column="abidance" property="abidance" />
+			<result column="quantitys" property="quantity" />
+			<result column="abidances" property="abidance" />
 		</collection>
 
 		<collection property="coupons" ofType="Coupon">
@@ -66,5 +66,29 @@
 		delete from
 		Merchandise where id = #{id}
 	</delete>
-
+	
+	<!-- 新增记录 -->
+	<insert id="insertPrice" parameterType="Price"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into 
+		price(quantitys,abidances,merchandise_mid)
+		values(#{quantity},#{abidance},#{mid})
+	</insert>
+	
+	<!-- 新增记录 -->
+	<insert id="insertProduct" parameterType="Product"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into
+		product(product,createtime,activecode,merchandise_mid)
+		values(#{product},#{createTime},#{activeCode},#{mid})
+	</insert>
+	
+<!-- 新增记录 -->
+	<insert id="insertCoupon" parameterType="Coupon"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into
+		coupon(code,deadline,coupon_limit,merchandise_mid)
+		values(#{code},#{deadLine},#{limit},#{mid})
+	</insert>
+	
 </mapper>

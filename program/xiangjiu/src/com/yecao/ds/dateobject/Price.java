@@ -2,7 +2,7 @@ package com.yecao.ds.dateobject;
 
 public class Price {
 
-	private String id;
+	private Integer id;
 	
 	/**
 	 * 价格
@@ -14,12 +14,26 @@ public class Price {
 	 */
 	private String abidance;
 	
+	private Integer mid;
+	
+	
 
-	public String getId() {
+	public Integer getMid() {
+		return mid;
+	}
+
+	public void setMid(Integer mid) {
+		this.mid = mid;
+	}
+
+
+	
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

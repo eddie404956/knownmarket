@@ -8,10 +8,23 @@
 </head>
 <body>
 
-<form name="addform" action="addmerchandise">
+<form name="addform" action="addmerchandise" enctype="multipart/form-data" method="post">
 	name<input name="name" type="text"/>
 	description<input name="description" type="text"/>
-	isFriend<input name="isFriend" type="text"/>
+	isFriend<select name="isFriend" >
+		<option label="yes" value="true"/>
+		<option label="no" value="false"/>
+	</select>
+	price:<input name="price" type="text"/>
+	price abidance:<input name="priceabidance" type="text"/>
+	
+	coupon code<input name="coupon" type="text"/>
+	coupon deadline<input name="coupondeadline" type="text"/>
+	coupon limit<input name="couponlimit" type="text"/>
+	
+	
+	product<input name="product" type="file"/>
+	product activecode<input name="activecode" type="text"/>
 	
 	<input value="submit" type="submit"/>
 </form>

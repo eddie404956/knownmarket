@@ -2,7 +2,7 @@ package com.yecao.ds.dateobject;
 
 public class Coupon {
 
-	private String id;
+	private Integer id;
 	/**
 	 * 优惠码
 	 */
@@ -17,12 +17,16 @@ public class Coupon {
 	 * 到期时间
 	 */
 	private String deadLine;
+	
+	private Integer mid;
 
-	public String getId() {
+	
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -49,6 +53,17 @@ public class Coupon {
 	public void setDeadLine(String deadLine) {
 		this.deadLine = deadLine;
 	}
+	
+	
+
+	public Integer getMid() {
+		return mid;
+	}
+
+	public void setMid(Integer mid) {
+		this.mid = mid;
+	}
+
 
 	@Override
 	public String toString() {
